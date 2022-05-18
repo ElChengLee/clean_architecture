@@ -6,16 +6,26 @@ part of 'article_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ArticleResponse _$ArticleResponseFromJson(Map<String, dynamic> json) =>
-    ArticleResponse(
-      (json['results'] as List<dynamic>)
-          .map((e) => Article.fromJson(e as Map<String, dynamic>))
-          .toList(),
+ArticleResponse<T> _$ArticleResponseFromJson<T>(
+  Map<String, dynamic> json,
+  T Function(Object? json) fromJsonT,
+) =>
+    ArticleResponse<T>(
+      fromJsonT(json['results']),
+      json['status'] as String,
+      json['copyright'] as String,
+      json['num_results'] as int,
     );
 
-Map<String, dynamic> _$ArticleResponseToJson(ArticleResponse instance) =>
+Map<String, dynamic> _$ArticleResponseToJson<T>(
+  ArticleResponse<T> instance,
+  Object? Function(T value) toJsonT,
+) =>
     <String, dynamic>{
-      'results': instance.articles,
+      'results': toJsonT(instance.articles),
+      'status': instance.status,
+      'copyright': instance.copyright,
+      'num_results': instance.numberResult,
     };
 
 Article _$ArticleFromJson(Map<String, dynamic> json) => Article(

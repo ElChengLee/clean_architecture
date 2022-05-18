@@ -12,5 +12,5 @@ abstract class ArticleService {
 
   @GET(
       "mostpopular/v2/mostviewed/all-sections/7.json?api-key=${Constants.API_KEY}")
-  Future<ArticleResponse> getArticles();
+  Future<ArticleResponse<List<Article>>> getArticles();
 }

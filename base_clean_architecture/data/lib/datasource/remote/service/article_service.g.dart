@@ -14,19 +14,23 @@ class _ArticleService implements ArticleService {
   String? baseUrl;
 
   @override
-  Future<ArticleResponse> getArticles() async {
+  Future<ArticleResponse<List<Article>>> getArticles() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<
-        ArticleResponse>(Options(
+        ArticleResponse<List<Article>>>(Options(
             method: 'GET', headers: _headers, extra: _extra)
         .compose(_dio.options,
             'mostpopular/v2/mostviewed/all-sections/7.json?api-key=qtVlLSfH968rf6nd2tqbLPDnHnA7NLEb',
             queryParameters: queryParameters, data: _data)
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ArticleResponse.fromJson(_result.data!);
+    final value = ArticleResponse<List<Article>>.fromJson(
+        _result.data!,
+        (json) => (json as List<dynamic>)
+            .map<Article>((i) => Article.fromJson(i as Map<String, dynamic>))
+            .toList());
     return value;
   }
 

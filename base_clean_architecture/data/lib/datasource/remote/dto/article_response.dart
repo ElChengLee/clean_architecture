@@ -2,17 +2,24 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'article_response.g.dart';
 
-@JsonSerializable()
-class ArticleResponse {
+@JsonSerializable(explicitToJson: true, genericArgumentFactories: true)
+class ArticleResponse<T> {
   @JsonKey(name: 'results')
-  final List<Article> articles;
+  final T articles;
+  final String status;
+  final String copyright;
+  @JsonKey(name: 'num_results')
+  final int numberResult;
 
-  ArticleResponse(this.articles);
+  ArticleResponse(
+      this.articles, this.status, this.copyright, this.numberResult);
 
-  factory ArticleResponse.fromJson(Map<String, dynamic> json) =>
-      _$ArticleResponseFromJson(json);
+  factory ArticleResponse.fromJson(
+          Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
+      _$ArticleResponseFromJson<T>(json, fromJsonT);
 
-  Map<String, dynamic> toJson() => _$ArticleResponseToJson(this);
+  Map<String, dynamic> toJson(Object Function(T) toJsonT) =>
+      _$ArticleResponseToJson<T>(this, toJsonT);
 }
 
 @JsonSerializable()

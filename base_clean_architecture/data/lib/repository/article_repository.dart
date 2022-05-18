@@ -32,8 +32,11 @@ class ArticleRepositoryImpl extends BaseRepository
   Future<Result<List<ArticleModel>>> getArticles() {
     return safeApiCall(_articleService.getArticles(),
         mapper: (ArticleResponse response) =>
-            response.articles.map((e) => e.toModel()).toList(),
-        saveResult: (ArticleResponse response) => _articleDao
-            .saveArticles(response.articles.map((e) => e.toEntity()).toList()));
+            response.articles.map<ArticleModel>((Article e) => e.toModel()).toList(),
+        saveResult: (ArticleResponse response) {
+          return _articleDao.saveArticles(
+              response.articles.map<ArticleEntity>((Article e) => e.toEntity()).toList());
+        }
+    );
   }
 }

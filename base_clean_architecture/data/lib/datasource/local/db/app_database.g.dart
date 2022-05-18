@@ -6,6 +6,7 @@ part of 'app_database.dart';
 // FloorGenerator
 // **************************************************************************
 
+// ignore: avoid_classes_with_only_static_members
 class $FloorAppDatabase {
   /// Creates a database builder for a persistent database.
   /// Once a database is built, you should keep a reference to it and re-use it.
@@ -68,6 +69,7 @@ class _$AppDatabase extends AppDatabase {
       version: 1,
       onConfigure: (database) async {
         await database.execute('PRAGMA foreign_keys = ON');
+        await callback?.onConfigure?.call(database);
       },
       onOpen: (database) async {
         await callback?.onOpen?.call(database);
@@ -100,14 +102,14 @@ class _$ArticleDao extends ArticleDao {
         _articleEntityInsertionAdapter = InsertionAdapter(
             database,
             'ArticleEntity',
-                (ArticleEntity item) => <String, Object?>{
-              'id': item.id,
-              'title': item.title,
-              'description': item.description,
-              'imageUrl': item.imageUrl,
-              'articleUrl': item.articleUrl,
-              'date': item.date
-            });
+            (ArticleEntity item) => <String, Object?>{
+                  'id': item.id,
+                  'title': item.title,
+                  'description': item.description,
+                  'imageUrl': item.imageUrl,
+                  'articleUrl': item.articleUrl,
+                  'date': item.date
+                });
 
   final sqflite.DatabaseExecutor database;
 
