@@ -27,8 +27,8 @@ dependencies:
 
   core:
     path: ../core
-  data:
-    path: ../data
+#  data:
+#    path: ../data
   domain:
     path: ../domain
 

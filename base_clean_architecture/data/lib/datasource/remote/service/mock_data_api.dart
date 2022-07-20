@@ -1,0 +1,4 @@
+const mockData = {
+  'http://119.17.209.167:8068/smk/global/vn/smartkid/global/vn/smartkid/authenticate/1.0': '{"requestId":"","status":"0","desc":"SUCCESS","message":null,"data":{"token":"eyJhbGciOiJIUzI1NiJ9.eyJ0b2tlbklkIjoiMjAyMjAzMTcxMDQ1MjkxNzEtMDMzYjI2OGMtNjBkMC00YzhlLWFlOWEtMDU3Y2UwYzIzYzlhIiwidXNlcm5hbWUiOiIwOTc4ODYxNzI0NyIsIm1vYmlsZV9pZCI6IiIsImNoYW5uZWwiOiJNT0JJTEUiLCJleHAiOjE2NDc3ODg3Mjl9.TWJa0bbQM8cUgmdLS0a4Db-rSVmEWQGS_dYXRJak46Q"}}',
+  'a': '{"requestId":"","status":"0","desc":"SUCCESS","message":null,"data":{"token":"eyJhbGciOiJIUzI1NiJ9.eyJ0b2tlbklkIjoiMjAyMjAzMTcxMDQ1MjkxNzEtMDMzYjI2OGMtNjBkMC00YzhlLWFlOWEtMDU3Y2UwYzIzYzlhIiwidXNlcm5hbWUiOiIwOTc4ODYxNzI0NyIsIm1vYmlsZV9pZCI6IiIsImNoYW5uZWwiOiJNT0JJTEUiLCJleHAiOjE2NDc3ODg3Mjl9.TWJa0bbQM8cUgmdLS0a4Db-rSVmEWQGS_dYXRJak46Q"}}',
+};
