@@ -6,6 +6,8 @@ part of 'article_service.dart';
 // RetrofitGenerator
 // **************************************************************************
 
+// ignore_for_file: unnecessary_brace_in_string_interps
+
 class _ArticleService implements ArticleService {
   _ArticleService(this._dio, {this.baseUrl});
 
@@ -26,10 +28,11 @@ class _ArticleService implements ArticleService {
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = ArticleResponse<List<Article>>.fromJson(
-        _result.data!,
-        (json) => (json as List<dynamic>)
-            .map<Article>((i) => Article.fromJson(i as Map<String, dynamic>))
-            .toList());
+      _result.data!,
+      (json) => (json as List<dynamic>)
+          .map<Article>((i) => Article.fromJson(i as Map<String, dynamic>))
+          .toList(),
+    );
     return value;
   }
 

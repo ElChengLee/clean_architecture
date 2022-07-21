@@ -14,3 +14,16 @@ class ArticleModel {
       required this.articleUrl,
       required this.date});
 }
+
+class LoginModel {
+  final String token;
+
+  LoginModel({required this.token});
+}
+
+class LoginRequestModel {
+  final String username;
+  final String password;
+
+  LoginRequestModel({required this.username, required this.password});
+}

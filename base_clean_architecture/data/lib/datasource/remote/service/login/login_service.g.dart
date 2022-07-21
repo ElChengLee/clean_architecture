@@ -6,6 +6,8 @@ part of 'login_service.dart';
 // RetrofitGenerator
 // **************************************************************************
 
+// ignore_for_file: unnecessary_brace_in_string_interps
+
 class _LoginService implements LoginService {
   _LoginService(this._dio, {this.baseUrl});
 

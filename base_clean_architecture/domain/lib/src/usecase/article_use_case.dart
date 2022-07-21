@@ -1,5 +1,5 @@
 import '../common/result.dart';
-import '../model/article_model.dart';
+import '../model/domain_model.dart';
 import 'base/base_use_case.dart';
 
 /// abstraction of use case to be used by viewmodel
