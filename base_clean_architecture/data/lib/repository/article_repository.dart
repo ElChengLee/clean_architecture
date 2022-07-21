@@ -1,4 +1,3 @@
-
 import 'package:data/mapper/article_mapper.dart';
 import 'package:domain/domain.dart';
 import 'package:injectable/injectable.dart';

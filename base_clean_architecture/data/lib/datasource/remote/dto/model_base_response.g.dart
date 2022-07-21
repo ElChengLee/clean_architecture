@@ -27,5 +27,5 @@ Map<String, dynamic> _$ModelBaseResponseToJson<T>(
       'status': instance.status,
       'desc': instance.desc,
       'message': instance.message,
-      'articles': toJsonT(instance.articles),
+      'articles': toJsonT(instance.data),
     };

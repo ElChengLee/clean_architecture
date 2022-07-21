@@ -8,9 +8,9 @@ class ModelBaseResponse<T> {
   final String status;
   final String desc;
   final String message;
-  final T articles;
+  final T data;
 
-  ModelBaseResponse(this.requestId, this.status, this.desc, this.message, this.articles);
+  ModelBaseResponse(this.requestId, this.status, this.desc, this.message, this.data);
 
   factory ModelBaseResponse.fromJson(
       Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
